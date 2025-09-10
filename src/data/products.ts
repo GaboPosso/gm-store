@@ -101,5 +101,4 @@ export const products: Product[] = [
     "rating": 4.3,
     "stock": 60
   },
-
 ]
