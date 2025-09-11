@@ -7,6 +7,7 @@ export interface Product {
     category: string;
     rating: number;
     stock: number;
+    reviewCount?: number;
 }
 
 export interface CartItem {
@@ -19,10 +20,29 @@ export interface User {
     name: string;
     email: string;
     address: string;
-    phone: string;
+    phone?: string;
 }
 
-export interface Cart {
+export interface Order {
+    id: string;
+    userId: string;
     items: CartItem[];
     total: number;
+    status: 'pending' | 'completed'| 'cancelled';
+    createdAt: Date;
+    updatedAt: Date;
+    shippingAddress: string;
+    paymentMethod: 'credit_card' | 'paypal' | 'bank_transfer';
+    transactionId?: string;
+    deliveryDate?: Date;
+    trackingNumber?: string;
+    notes?: string;
+    discountCode?: string;
+    taxAmount?: number;
+    shippingCost?: number;
+    giftWrap?: boolean;
+    giftMessage?: string;
+    isPaid: boolean;
+    paidAt?: Date;
+    isDelivered: boolean;
 }
